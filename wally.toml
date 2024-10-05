@@ -1,6 +1,6 @@
 [package]
-name = "nux/sight"
-version = "0.1.0"
+name = "0nux0/sight"
+version = "0.1.4"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 

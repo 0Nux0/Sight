@@ -1,0 +1,14 @@
+{
+    "name": "Sight",
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "Package": {
+                "$path": "Packages",
+                "Sight" :{
+                    "$path" : "src"
+                }
+            }
+        }
+    }
+}

@@ -1,10 +1,7 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local Signal = require(ReplicatedStorage.Package.Signal)
+local Signal = require(script.Parent.Signal)
 
 local Sight = {} :: Sight
 Sight.__index = Sight
-
 -- // Constructor
 
 export type Sight = {
@@ -45,10 +42,9 @@ end
 
 function Sight:set(newValue : any)
    self:_IsActive()
-   if typeof(self._Value) == 'table' then
-        warn('Set method only suport Strings, numbers and boolean')
-        return
-   end
+
+   assert(newValue ~= table, 'Table type is not suported')
+   
    self._PastValue = self._Value
    self._Value = newValue
    self._OnChanged:Fire(self._Value)

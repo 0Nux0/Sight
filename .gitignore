@@ -1,6 +1,19 @@
 # Project place file
-/Sight.rbxlx
+/*.rbxl
 
-# Roblox Studio lock files
-/*.rbxlx.lock
-/*.rbxl.lock
+# Lock files
+/*.lock
+
+# Rojo
+sourcemap.json
+
+# Wally
+ServerPackages
+DevPackages
+Packages
+
+# Blink
+out
+
+# Local Secrets
+.env
