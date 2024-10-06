@@ -47,6 +47,8 @@ sight:set(newValue) -> void
    - Parameters: newValue,
    - Returns : Void
 
+
+
 ### Destroy
 
 - `Sight:destroy()`
