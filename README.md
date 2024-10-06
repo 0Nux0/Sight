@@ -50,8 +50,7 @@ sight:set(newValue) -> void
 
 
 ```lua
-local Signal = require(script.Parent.Signal)
-local Sight = require(script.Sight)
+local Sight = require(game.ReplicatedStorage.Packages.sight)
 
 local mySight = Sight.new("InitialValue")
 
