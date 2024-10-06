@@ -1,6 +1,6 @@
 # Download
 
-You can simply install it on wally `sight = "0nux0/sight@0.1.5"`
+You can simply install it on wally [`Install`](https://wally.run/package/0nux0/sight?version=0.1.6)
 
 Or by rbxm https://github.com/0Nux0/Sight/blob/main/Sight.rbxm
 
