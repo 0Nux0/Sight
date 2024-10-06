@@ -64,7 +64,11 @@ local mySight = Sight.new("InitialValue")
 
 print(mySight:get()) -- Output: "InitialValue"
 
+mySight.onChanged:Connect(function(changedValue) 
+    print(mySight:get()) -- Output: "NewValue"
+end)
 mySight:set("NewValue")
+
 print(mySight:get()) -- Output: "NewValue"
 
 mySight:destroy()
