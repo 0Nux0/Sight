@@ -51,7 +51,7 @@ function Sight:set(newValue : any)
    end
    self._PastValue = self._Value
    self._Value = newValue
-   self._OnChanged:Fire(self._Value)
+   self.onChanged:Fire(self._Value)
 end
 
 function Sight:toggleInsert(newValue)
