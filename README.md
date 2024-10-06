@@ -1,7 +1,8 @@
 # Download
 
 You can simply install it on wally `sight = "0nux0/sight@0.1.4"`
-Or by rmbx https://github.com/0Nux0/Sight/blob/main/Sight.rbxm
+
+Or by rbxm https://github.com/0Nux0/Sight/blob/main/Sight.rbxm
 
 # Documentation
 The `Sight` Library allows for value abstraction with signaling capabilities. It includes methods to create, get, set, and destroy the value.
