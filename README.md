@@ -41,6 +41,11 @@ sight:set(newValue) -> void
     - Returns: void
 
 
+### ToggleInsert
+ - `Sight:toggleInsert(newValue : any)`
+   - Description: Inserts a new field into a table but if this field already exists, the found field will be deleted.
+   - Parameters: newValue,
+   - Returns : Void
 
 ### Destroy
 
