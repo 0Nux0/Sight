@@ -6,10 +6,11 @@ Sight.__index = Sight
 
 export type Sight = {
     new: () -> typeof(setmetatable(Sight, {})),
-    get: (self : Sight) -> (...any),
-    set: (self : Sight, ...any) -> (),
+    get: (self : Sight,any?) -> (any),
+    set: (self : Sight, any) -> (),
+    toggleInsert : (self : Sight, ...any) -> (),
     destroy: () -> (),
-    _OnChanged :  Signal.ScriptSignal<any>
+    onChanged :  Signal.ScriptSignal<any>
 }
 
 function Sight.new(... : any)
@@ -17,22 +18,24 @@ function Sight.new(... : any)
     self._Value = ...
     self._Active = true
     self._PastValue = nil
-    self._OnChanged = Signal.new()
+    self.onChanged = Signal.new()
     return setmetatable(self, {})
 end
 
 -- // Methods
 
-function Sight:_IsActive()
-    if not self._Active then
-		warn("The value you tried to abstract does not exist or has been deleted")
-		return false
-	end
-    return true
+function Sight:_find(searchValue)
+    local insertedIndex = table.find(self._Value,searchValue)
+
+    local insertedValue = self._Value[insertedIndex]
+
+    return insertedValue
 end
 
-function Sight:get()
-	self:_IsActive()
+function Sight:get(searchValue)
+    if searchValue then
+        return self:_find(searchValue)
+    end
     return self._Value
 end
 
@@ -41,13 +44,26 @@ function Sight:destroy()
 end
 
 function Sight:set(newValue : any)
-   self:_IsActive()
-
-   assert(newValue ~= table, 'Table type is not suported')
    
+   if typeof(self._Value) == 'table' then
+        warn('Set method only suport Strings, numbers and boolean, use toggleInsert instead')
+        return
+   end
    self._PastValue = self._Value
    self._Value = newValue
    self._OnChanged:Fire(self._Value)
+end
+
+function Sight:toggleInsert(newValue)
+    assert(typeof(self._Value) == 'table', 'Insert method only support tables')
+    
+    local index = table.find(self._Value,newValue)
+    if index then table.remove(self._Value, index) end
+    
+    table.insert(self._Value,newValue)
+    
+    local insertedValue = self:_find(newValue)
+    self.onChanged:Fire(insertedValue)
 end
 
 return Sight
